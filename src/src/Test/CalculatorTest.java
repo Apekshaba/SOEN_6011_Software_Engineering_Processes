@@ -1,10 +1,11 @@
 package Test;
 
+import Main.Calculator;
 import Main.Tan;
+import Main.Util;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.*;
 
 public class CalculatorTest {
     @Test
@@ -47,5 +48,13 @@ public class CalculatorTest {
         double actual = Tan.tan(45);
         assertEquals(expected, actual,0);
         assertNotEquals(10.2,actual,0);
+    }
+
+    @Test
+    public void inValidRangeTest(){
+        boolean actualT = Util.inValidRange(12.2);
+        boolean actualF = Util.inValidRange(Double.MAX_VALUE+1);
+        assertTrue(actualT);
+        assertTrue(actualF);
     }
 }
